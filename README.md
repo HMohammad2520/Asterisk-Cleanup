@@ -41,17 +41,17 @@ The following cron jobs were added to automate the execution of the cleanup scri
 
 1. **Add script to crontab**:
    ```bash
-   Use crontab -e to add the script
+   crontab -e
    ```
 
-2. **Run daily at midnight**:
+2.1. **Run daily at midnight**:
    ```bash
-   0 0 * * * /opt/cleanup_calls/cleanup_calls.sh 365
+   0 0 * * * /opt/cleanup_calls/cleanup_calls.sh 365 >> /var/log/cleanup_calls.log 2>&1 
    ```
 
-3. **Run every hour at 1 minute past the hour**:
+2.2. **Run every hour at 1 minute past the hour**:
    ```bash
-   1 * * * * /opt/cleanup_calls/cleanup_calls.sh 365
+   1 * * * * /opt/cleanup_calls/cleanup_calls.sh 365 >> /var/log/cleanup_calls.log 2>&1
    ```
 
 ### Explanation of Cron Jobs:
