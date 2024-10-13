@@ -9,7 +9,7 @@ You can install the cleanup script using one of the following methods:
 ### Method 1: Download and Move the File
 1. Download the script to your desired location:
    ```bash
-   wget https://github.com/your_username/your_repo/raw/main/cleanup_calls.sh -O /tmp/cleanup_calls.sh
+   wget https://github.com/radin-system/Asterisk-Cleanup/raw/main/cleanup_calls.sh -O /tmp/cleanup_calls.sh
    ```
 2. Move the downloaded script to the appropriate directory:
    ```bash
@@ -21,13 +21,14 @@ You can install the cleanup script using one of the following methods:
    ```
 
 ### Method 2: Using Git
-1. Clone the repository containing the cleanup script:
+1. Make the Directory and move there
    ```bash
-   git clone https://github.com/your_username/your_repo.git
+   mkdir /opt/cleanup_calls/
+   cd /opt/cleanup_calls/
    ```
-2. Move the script to the appropriate directory:
+2. Clone the repository containing the cleanup script:
    ```bash
-   mv your_repo/cleanup_calls.sh /opt/cleanup_calls/cleanup_calls.sh
+   git clone https://github.com/radin-system/Asterisk-Cleanup.git
    ```
 3. Set the script permissions to make it executable:
    ```bash
@@ -37,12 +38,18 @@ You can install the cleanup script using one of the following methods:
 ## Cron Job Setup
 The following cron jobs were added to automate the execution of the cleanup script:
 
-1. **Run daily at midnight**:
+
+1. **Add script to crontab**:
+   ```bash
+   Use crontab -e to add the script
+   ```
+
+2. **Run daily at midnight**:
    ```bash
    0 0 * * * /opt/cleanup_calls/cleanup_calls.sh 365
    ```
 
-2. **Run every hour at 1 minute past the hour**:
+3. **Run every hour at 1 minute past the hour**:
    ```bash
    1 * * * * /opt/cleanup_calls/cleanup_calls.sh 365
    ```
